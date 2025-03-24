@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}}</title>
+    <title>{{ title }}</title>
 </head>
 <body>
-    <h1>{{title}}</h1>
+    <h1>{{ title }}</h1>
+
+    <ul>
+        {% for invent in all_invent_info %}
+            <li>
+                <p>Название: {{ invent.name }}</p>
+                <p>Номер: {{invent.inventory_number}}</p>
+                <p>Дата регистрации: {{invent.registration_date}}</p>
+                <p>Фото:
+                    {% if invent.photo %}
+                        <img src="{{ invent.photo.url }}" alt="Фото оборудования">
+                    {% else %}
+                        <span>Фото отсутствует</span>
+                    {% endif %}
+                </p>
+                <p>Описание: {{invent.description}}</p>
+                <p>Статус: {{invent.status}}</p>
+                <p>Местонахождение: {{invent.location}}</p>
+            </li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
