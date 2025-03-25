@@ -1,10 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Добавить новую технику</title>
+    </head>
+    <body>
+        <div>
+            <h1>Добавить новую технику</h1>
+            <form method="post">
+                {% csrf_token %}
 
-</body>
+                <div>
+                    <p>{{ errors }}</p>
+                    <label for="name">Название:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div>
+                    <p>{{ errors }}</p>
+                    <label for="inventory_number">Номер инвентаря:</label>
+                    <input type="number" id="inventory_number" name="inventory_number" required>
+                </div>
+
+                <div>
+                    <p>{{ errors }}</p>
+                    <label for="registration_date">Дата регистрации:</label>
+                    <input type="date" id="registration_date" name="registration_date" required>
+                </div>
+
+                <div>
+                    <p>{{ errors }}</p>
+                    <label for="photo">Фото:</label>
+                    <input type="image" id="photo" name="photo" required>
+                </div>
+
+                <div>
+                    <p>{{ errors }}</p>
+                    <label for="description">Текст поста:</label>
+                    <textarea id="description" name="description" rows="20" required></textarea>
+                </div>
+
+                <div>
+                    <p>{{ errors }}</p>
+                    <label for="status">Статус оборудования:</label>
+                    <input type="" id="status" name="status" required>
+                </div>
+
+                <button type="submit">Создать пост</button>
+            </form>
+        </div>
+    </body>
 </html>
