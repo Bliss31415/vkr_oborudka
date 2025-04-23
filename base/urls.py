@@ -20,9 +20,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+
     path('admin/', admin.site.urls),
-    path('inventory/', include('inventory.urls')),
+    #path('inventory/', include('inventory.urls')),
     # path('register/', views.register, name='register'),
+    path('', include('inventory.urls')),
+    path('personal', include('personal.urls')),
 ]
 
 if settings.DEBUG:

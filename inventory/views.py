@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from inventory.models import Inventarnik, Inventory_status
 
+def home(request):
+    return render(request, 'inventory/home.html')
+
 def invent_list(request):
     all_invent_info = Inventarnik.objects.all()
     all_invent_status = Inventory_status.objects.all()
@@ -34,3 +37,9 @@ def add_new_invent(request):
             )
         return redirect('inventory/invent_list.html')
     return render(request,'inventory/add_invent.html')
+
+
+def equipment_list(request):
+    all_invent_info = Equipment.objects.all()
+    context = {'all_invent_info': all_invent_info}
+    return render(request, 'equipment_list.html', context)

@@ -1,31 +1,27 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
-</head>
-<body>
-    <h1>{{ title }}</h1>
-
-    <ul>
-        {% for invent in all_invent_info %}
-            <li>
-                <p>Название: {{ invent.name }}</p>
-                <p>Номер: {{invent.inventory_number}}</p>
-                <p>Дата регистрации: {{invent.registration_date}}</p>
-                <p>Фото:
-                    {% if invent.photo %}
-                        <img src="{{ invent.photo.url }}" alt="Фото оборудования">
-                    {% else %}
-                        <span>Фото отсутствует</span>
-                    {% endif %}
-                </p>
-                <p>Описание: {{invent.description}}</p>
-                <p>Статус: {{invent.status}}</p>
-                <p>Местонахождение: {{invent.location}}</p>
-            </li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}Список оборудования{% endblock %}
+{% block content %}
+<h1 class="mb-4">Список оборудования</h1>
+<ul class="list-group">
+    {% for invent in all_invent_info %}
+    <li class="list-group-item mb-3">
+        <h5>{{ invent.name }}</h5>
+        <p><strong>Номер:</strong> {{ invent.inventory_number }}</p>
+        <p><strong>Дата регистрации:</strong> {{ invent.registration_date }}</p>
+        <p>
+            <strong>Фото:</strong>
+            {% if invent.photo %}
+                <img src="{{ invent.photo.url }}" alt="Фото оборудования" class="img-thumbnail" style="max-width: 150px;">
+            {% else %}
+                <span>Фото отсутствует</span>
+            {% endif %}
+        </p>
+        <p><strong>Описание:</strong> {{ invent.description }}</p>
+        <p><strong>Статус:</strong> {{ invent.status }}</p>
+        <p><strong>Местонахождение:</strong> {{ invent.location }}</p>
+    </li>
+    {% empty %}
+    <li class="list-group-item">Оборудование не найдено.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
