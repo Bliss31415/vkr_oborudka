@@ -1,8 +1,8 @@
 {% load static %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
   <div class="container">
     <a class="navbar-brand fw-bold" href="{% url 'home' %}">
-      <i class="bi bi-boxes me-2"></i> Мониторинг и аренда оборудования
+        Мониторинг и аренда оборудования
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,8 +24,9 @@
                 <div class="dropdown">
                     <a class="nav-link dropdown-toggle text-white" href="#" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
-<!--                        {{ user.first_name|default:"Иван" }} {{ user.last_name|default:"Иванов" }}-->
-                        {{ user.name|default:"Вася Васильев" }}
+<!--                        {{ user.name|default:"Вася Васильев" }}-->
+                        {{ user.get_full_name|default:user.username }}
+
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li>
