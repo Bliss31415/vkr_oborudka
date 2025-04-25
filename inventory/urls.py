@@ -9,5 +9,5 @@ urlpatterns = [
     #path('<int:item_id>/', views.inventory_detail, name='inventory_detail')
     # path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     # path('logout/', auth_views.LogoutView.as_view(next_page='home'), name='logout'),
-    # path('signup/', views.signup, name='signup'),  # если реализуете регистрацию
+    # path('signup/', views.signup, name='signup'),
 ]
